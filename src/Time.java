@@ -9,13 +9,15 @@ public class Time implements Runnable, ActionListener {
 	int i = 0;
 
 	public Time () {//cuenta el tiempo cada segundo
-		time = new Timer(1000, this);
+		time = new Timer(100, this);
 	}
 	
 	public void actionPerformed(ActionEvent arg) {
-		System.out.println("tiempo "+ i++);
+		HUD.getHUD().setTime();
 		
 	}
+	
+
 
 	public void addNotify() {
 		super.notify();
@@ -33,6 +35,9 @@ public class Time implements Runnable, ActionListener {
 			clock = new Thread(this);
 			clock.start();
 		}
-	} 
+	}
+	
+
+
 	
 }

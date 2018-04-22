@@ -8,6 +8,7 @@ public class Factory {
     GameState go = null; 
     GameState turno1 = null; 
     GameState turno2 = null;
+    GameState winner = null;
    
     
 
@@ -17,26 +18,22 @@ public class Factory {
     public static Factory getInstance(){
     	
       if(instance==null){
-    	  
-    	  instance= new Factory();
-    	  
+    	  instance= new Factory();  
       }
       return instance;
-    }
-//turno nuevo
+      }
+
     public GameState createState(String tag){
     	
     	GameState currentState = null; 
     	
     	if(tag.equalsIgnoreCase("start")){
     	   		
-	    		start = new GameStateStart();
-	    	
-	    		currentState = start;
-       
+	    	start = new GameStateStart();
+	    	currentState = start;
       }
+    	
       if(tag.equalsIgnoreCase("turno1")){
-    	  
 
 	    	turno1 = new GameStateTurno1();
 	    	currentState = turno1;
@@ -52,6 +49,11 @@ public class Factory {
 	    	go = new GameStateOver();
 	    	currentState = go;
       }
+      if(tag.equalsIgnoreCase("winner")){
+    	  
+	    	winner = new GameStateWinner();
+	    	currentState = winner;
+    }
       return currentState;
     }
 

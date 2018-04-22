@@ -5,8 +5,8 @@ import java.text.DecimalFormat;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    private static final int PWIDTH = 500;
-    private static final int PHEIGHT = 400; //tamaño del panel
+    private static final int PWIDTH = 600;
+    private static final int PHEIGHT = 500; //tamaño del panel
 
     private Thread animator; //controla la animación
     private volatile boolean end = false;
@@ -18,7 +18,6 @@ public class GamePanel extends JPanel implements Runnable {
         setPreferredSize(new Dimension(PWIDTH,PHEIGHT));//dimensiones del panel
         setFocusable(true);
         requestFocus();
-        //readyForTermination();
         
 
         game = new GameContext();
@@ -97,18 +96,6 @@ public class GamePanel extends JPanel implements Runnable {
             g.drawImage(dbImage, 0, 0, null);
     }
 
-    /*private void readyForTermination() {
-
-        addKeyListener( new KeyAdapter() { // listen for esc, ctrl-c
-            public void keyPressed(KeyEvent e) {
-                int keyCode = e.getKeyCode();
-                game.processKey(e);
-                if ((keyCode == KeyEvent.VK_ESCAPE) || ((keyCode == KeyEvent.VK_C) && e.isControlDown()) ) {
-                    end = true;
-                }
-            }
-        });
-    }*/
 
     private void paintScreen(){
         Graphics g;

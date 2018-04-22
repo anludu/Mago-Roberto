@@ -22,15 +22,16 @@ public class ImageLoader {
 			"bg1",
 			"bg3",
 			"visto",
-			"equis"};
+			"equis",
+			"back"};
 	
 	
-	private BufferedImage animales [] = new BufferedImage[13];
+	private BufferedImage animales [] = new BufferedImage[15];
 		
 	public ImageLoader() {
 		try {
 			
-			for(int i = 0; i < 13; i++) {
+			for(int i = 0; i < 15; i++) {
 				
 				animales [i] = ImageIO.read(new File("src\\Imagenes Mago\\" + tags[i] + ".png")); 
 			}

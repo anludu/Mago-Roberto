@@ -8,6 +8,7 @@ public class GameContext {
 	private GameState turno2;
 	private GameState go;//game over
 	private GameState currentState;
+	private GameState winner;
 
 	
 	
@@ -16,11 +17,14 @@ public class GameContext {
         turno1 = Factory.getInstance().createState("turno1");
         turno2 = Factory.getInstance().createState("turno2");
         go = Factory.getInstance().createState("go");
+        winner = Factory.getInstance().createState("winner");
+        
         
         start.setContext(this);
         turno1.setContext(this);
         turno2.setContext(this);
         go.setContext(this);
+        winner.setContext(this);
         
 		currentState = Start();	
 	}
@@ -46,6 +50,11 @@ public class GameContext {
 	public GameState GameOver() {
 		
 		return go;
+		
+	}
+	public GameState Winner() {
+		
+		return winner;
 		
 	}
 	
